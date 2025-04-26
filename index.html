@@ -1,40 +1,128 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Free Telegram/WhatsApp Numbers</title>
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlimited Numbers | EZ</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #ffffffbb;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .number-box {
+            background: #fff;
+            border-radius: 10px;
+            margin: 15px;
+            padding: 20px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .number {
+            font-size: 18px;
+            color: #333;
+        }
+        button.copy-btn {
+            background: #4CAF50;
+            border: none;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        button.copy-btn:hover {
+            background: #45a049;
+        }
+        .join-btn {
+            margin: 20px;
+            padding: 12px 25px;
+            background-color: #008CBA;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .join-btn:hover {
+            background-color: #007bb5;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Free Numbers for Telegram & WhatsApp</h1>
-    <p>Click to copy any number and use it to create your account.</p>
-    
-    <div class="number-list">
-      <div class="number-item">
-        <span class="number">+447700900001</span>
-        <button onclick="copyText('+447700900001')">Copy</button>
-      </div>
-      <div class="number-item">
-        <span class="number">+447700900002</span>
-        <button onclick="copyText('+447700900002')">Copy</button>
-      </div>
-    </div>
 
-    <div class="guide">
-      <h2>How to Use:</h2>
-      <ol>
-        <li>Copy any number above.</li>
-        <li>Paste in Telegram or WhatsApp during signup.</li>
-        <li>Wait for the OTP in our Telegram Group below.</li>
-      </ol>
-    </div>
+<header>
+    <h1>Unlimited Numbers</h1>
+</header>
 
-    <a class="join-btn" href="https://t.me/EarningZone20266" target="_blank">Join OTP Group</a>
-  </div>
+<div id="numberList">
+    <!-- Numbers will appear here -->
+</div>
 
-  <script src="script.js"></script>
+<a href="https://t.me/EarningZone20266" target="_blank">
+    <button class="join-btn">Join OTP Group</button>
+</a>
+
+<script>
+    const numbers = [
+        "+1 555 123 4567",
+        "+1 555 987 6543",
+        "+44 20 7946 0958",
+        "+91 98765 43210",
+        "+880 1723 456789"
+    ];
+
+    const numberList = document.getElementById('numberList');
+
+    numbers.forEach(num => {
+        const box = document.createElement('div');
+        box.className = 'number-box';
+
+        const number = document.createElement('div');
+        number.className = 'number';
+        number.innerText = num;
+
+        const btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.innerText = 'Copy';
+        btn.onclick = () => {
+            navigator.clipboard.writeText(num).then(() => {
+                btn.innerText = 'Copied!';
+                setTimeout(() => {
+                    btn.innerText = 'Copy';
+                }, 1500);
+            });
+        };
+
+        box.appendChild(number);
+        box.appendChild(btn);
+
+        numberList.appendChild(box);
+    });
+</script>
+
 </body>
 </html>
